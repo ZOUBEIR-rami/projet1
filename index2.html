@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hello</title>
+    <style>
+.image-container {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.zoomable {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(2.9);
+  transition: transform 0.5s ease; /* Ajouter une transition de 0.5s pour une animation fluide */
+}
+
+
+    </style>
+</head>
+<body>
+    <div class="image-container">
+        <img src="1stscreen.jpg" class="zoomable">
+      </div>
+      <div class="parti">
+        <div class="pp1"> <h2>CREATING POWERFUL BRANDS: THE AGENCY
+             THAT AMPLIFIES YOUR IDENTITY</h2></div>
+            <div class="pp2"> <p>We create awesome CAMPAIGNS WITH YOU = "COLLABORATING TO
+                 CRAFT EXTRAORDINARY CAMPAIGNS: YOUR PARTNER IN SUCCESS"
+                 A dynamic agency founded by enthusiastic and seasoned marketing
+                 professionals, blending innovative strategic vision with exceptional
+                 execution to achieve lasting outcomes. By placing consumers at the heart
+                 of our strategic approach, we develop captivating concepts that resonate
+                 with the modern Moroccan generation. With our robust expertise in digital,
+                 we assist you in navigating the media landscape for your brands and
+                 crafting a distinctive digital presence that engages and captivates social
+                 media audiences. Collaborating with an extensive creative network
+                 (YouTubers, Rappers, Influencers, Actors, and more), we provide inventive
+                 solutions to address the diverse challenges your brands encounter.</p></div>
+                 <div class="container overflow-hidden text-center" id="d1">
+                     <div class="row gx-5">
+                       <div class="col" id="l1">
+                        <div class="p-3">BRAND & COMMUNICATION BLUEPRINT: SHAPING YOUR STORY</div>
+                       </div>
+                       <div class="col" id="l2">
+                         <div class="p-3">MASTERING DIGITAL ENGAGEMENT: STRATEGIC PLANNING & FLAWLESS EXECUTION</div>
+                       </div>
+                       <div class="col" id="l3">
+                         <div class="p-3">COMPELLING CONTENT CREATION & STRATEGIC MEDIA PLANNING</div>
+                       </div>
+                     </div>
+                   </div>
+         </div>
+         <div class="parti2">
+           <div class="a1">
+             <iframe width="100%" height="700px" src="https://www.youtube.com/embed/1yeuLjrpZI0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+           </div>
+         </div>
+</body>
+<script>
+const image = document.querySelector('.zoomable');
+const container = document.querySelector('.image-container');
+let lastScrollTop = 0;
+window.addEventListener('scroll', function() {
+  // Obtenir la distance de scroll de la page
+  const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+  // Vérifier si l'utilisateur fait défiler la page vers le haut ou vers le bas
+  const isScrollUp = scrollTop < lastScrollTop;
+  lastScrollTop = scrollTop;
+  // Réduire la taille de l'image au fur et à mesure que l'utilisateur fait défiler la page
+  let scale = 1;
+  if (isScrollUp) {
+    scale += 1+scrollTop / container.offsetHeight;
+  } else {
+    scale -= scrollTop / container.offsetHeight;
+  }
+  image.style.transform = `scale(${scale})`;
+});
+
+</script>
+</html>
